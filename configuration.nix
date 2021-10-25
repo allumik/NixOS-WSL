@@ -74,9 +74,11 @@ in
   };
 
   system.activationScripts.copy-launchers.text = ''
+    if [ ! -d "/usr/share/" ]; then
+      mkdir /usr/share/
+    fi
     for x in applications icons; do
       echo "Copying /usr/share/$x"
-      mkdir /usr/share/
       rm -rf /usr/share/$x
       cp -r $systemConfig/sw/share/$x/. /usr/share/$x
     done
