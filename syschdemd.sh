@@ -38,7 +38,7 @@ if [[ $# -gt 0 ]]; then
     shift
     cmd="$@"
 else
-    cmd="$userShell"
+    cmd="$userShell --login"
 fi
 
 # store external environment but filter variables specific to current (root) user.
